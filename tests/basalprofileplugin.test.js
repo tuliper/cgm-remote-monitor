@@ -7,7 +7,7 @@ describe('basalprofile', function ( ) {
   var sandbox = require('../lib/sandbox')();
   var env = require('../env')();
   var ctx = {};
-  ctx.data = require('../lib/data')(env, ctx);
+  ctx.ddata = require('../lib/data/ddata')();
   ctx.notifications = require('../lib/notifications')(env, ctx);
 
   var profileData = 
@@ -65,7 +65,7 @@ describe('basalprofile', function ( ) {
     var time = new Date('2015-06-21T00:00:00').getTime();
 
     var sbx = sandbox.clientInit(ctx, time, data);
-    sbx.data.profile = profile;
+    sbx.ddata.profile = profile;
     basal.updateVisualisation(sbx);
 
   });
